@@ -4,7 +4,7 @@ import {
     ADD_BED_GET_FAIL,
   } from '../constants/Add Bed';
   
-  export const addsbed = (
+  export const addbed = (
     state = { addbed: [], loading: true },
     action
   ) => {

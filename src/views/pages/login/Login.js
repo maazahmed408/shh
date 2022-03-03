@@ -179,23 +179,26 @@ const Login = (props) => {
                     </div>
                     <p style={{ color: "red" }}>{formErrors.password}</p>
                     <div className='text-center text-lg-start mt-4 pt-2 text align-center'>
-                      <div className='row-col-12 text align-center form-outline mb-2'>
+                      <div className='row-12 text align-center form-outline mb-2'>
                         <button
                           type="submit"
-                          className='btn btn-primary btn-bg '
-                          style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
+                          className='col-12  btn btn-primary btn-bg '
+                          style={{ paddingLeft: '4rem', paddingRight: '4rem' }}
                         >
                           Login
                         </button>
                       </div>
                     </div>
-
-                    <div className="text align-center">
+                    <div className="row d-flex">
+                      <div className="col-6 text align-center"
+                       
+                      >
                       <Link to="">forget password</Link>
-                    </div>
-                    <div className="text align-center">
-                      <lable>Account</lable>
-                       <Link to="/register">Sign up!</Link>
+                      </div>
+                      <div className=" col-6 text align-center">
+                        <lable>Account</lable>
+                        <Link to="/register">Sign up!</Link>
+                       </div>
                     </div>
                   </div>
                 </form>

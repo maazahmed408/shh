@@ -4,7 +4,6 @@ import {
     ADD_SCHEDULE_GET_FAIL,
   } from '../constants/Addschedule';
   
-  
   export const addschedule = (
     state = { addschedule: [], loading: true },
     action
