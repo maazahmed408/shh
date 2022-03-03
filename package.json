@@ -46,6 +46,7 @@
     "enzyme": "^3.11.0",
     "fastest-validator": "^1.12.0",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^3.2.3",
     "jquery": "^3.6.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
