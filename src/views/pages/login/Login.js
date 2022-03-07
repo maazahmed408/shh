@@ -157,7 +157,7 @@ const Login = (props) => {
                         name='username'
                         value={formValues.username}
                         onChange={handleChange}
-                        className='form-control form-control-lg'
+                        className='form-control form-control-sm'
                         placeholder='Enter a username'
                         autoComplete='username'
                       />
@@ -172,7 +172,7 @@ const Login = (props) => {
                         name='password'
                         value={formValues.password}
                         onChange={handleChange}
-                        className='form-control form-control-lg'
+                        className='form-control form-control-sm'
                         placeholder='Enter password'
                         autoComplete='password'
                       />
@@ -191,13 +191,11 @@ const Login = (props) => {
                     </div>
                     <div className="row d-flex">
                       <div className="col-6 text align-center"
-                       
                       >
-                      <Link to="">forget password</Link>
+                      <Link to="/forgetpassword">forget password</Link>
                       </div>
                       <div className=" col-6 text align-center">
-                        <lable>Account</lable>
-                        <Link to="/register">Sign up!</Link>
+                        <Link to="/register">Account Sign up!</Link>
                        </div>
                     </div>
                   </div>

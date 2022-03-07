@@ -174,6 +174,11 @@ const _nav = [
         name: 'Register',
         to: '/register',
       },
+      {
+        component: CNavItem,
+        name: 'Forgetpassword',
+        to: '/Forgetpassword',
+      },
     ],
   },
 ]
