@@ -1,12 +1,12 @@
 {
   "name": "kickrtechnology",
   "version": "14.16.1",
-  "homepage": "https://deepaksiwan.github.io/demo3",
+  "homepage": "https://deepaksiwan.github.io/deepakdemo",
   "private": "true",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
+    "build": "bower install && grunt build",
     "build:n17": "react-scripts --openssl-legacy-provider build",
     "changelog": "auto-changelog --starting-version 4.1.0 --commit-limit false --hide-credit",
     "eject": "react-scripts eject",
