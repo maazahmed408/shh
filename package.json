@@ -1,12 +1,11 @@
 {
   "name": "kickrtechnology",
-  "version": "4.1.1",
+  "version": "14.16.1",
   "homepage": "https://deepaksiwan.github.io/demo3",
-  
   "private": "true",
   "scripts": {
     "predeploy": "npm run build",
-   "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "build:n17": "react-scripts --openssl-legacy-provider build",
     "changelog": "auto-changelog --starting-version 4.1.0 --commit-limit false --hide-credit",
@@ -26,6 +25,10 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "16.x"
   },
   "dependencies": {
     "@coreui/chartjs": "^3.0.0",
@@ -75,7 +78,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "run": "^1.4.0",
-    "simplebar-react": "^2.3.6"
+    "simplebar-react": "^2.3.6",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "auto-changelog": "~2.3.0",
@@ -91,7 +95,6 @@
     "react-scripts": "^4.0.3",
     "sass": "^1.43.5"
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",
