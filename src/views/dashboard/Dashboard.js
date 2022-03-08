@@ -5,10 +5,10 @@ import "src/asset/css/main.css";
 import "../../../asset/css/main.css";*/
 
 
-const Dashboard =()=>{
-    return(
+const Dashboard = () => {
+    return (
         <>
-        <div>
+            <div>
                 <section className="content home">
                     <div className="container-fluid">
                         <div className="block-header">
@@ -27,7 +27,7 @@ const Dashboard =()=>{
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-6">
                                 <div className="info-box-3 hover-zoom-effect">
-                                    {/*<div className="icon"> <i className="zmdi zmdi-account col-green" /> </div>*/}
+                                    <div className="icon"> <i className="zmdi zmdi-account col-blue" /> </div>
                                     <div className="content">
                                         <div className="text">OPD Patient</div>
                                         <div className="number">12</div>
@@ -36,7 +36,7 @@ const Dashboard =()=>{
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-6">
                                 <div className="info-box-2 hover-zoom-effect">
-                                    {/*<div className="icon"> <i className="zmdi zmdi-bug col-blush" /> </div>*/}
+                                    <div className="icon"> <i className="zmdi zmdi-bug col-blush" /> </div>
                                     <div className="content">
                                         <div className="text">Today's Operations</div>
                                         <div className="number">20</div>
@@ -44,8 +44,8 @@ const Dashboard =()=>{
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-6">
-                                <div className="info-box-1 hover-zoom-effect">
-                                    {/*<div className="icon"> <i className="zmdi zmdi-balance col-cyan" /> </div>*/}
+                                <div className="info-box-2 hover-zoom-effect">
+                                    <div className="icon"> <i className="zmdi zmdi-balance col-cyan" /> </div>
                                     <div className="content">
                                         <div className="text">Hospital Earning</div>
                                         <div className="number">$3,540</div>
@@ -53,41 +53,13 @@ const Dashboard =()=>{
                                 </div>
                             </div>
                         </div>
-                       {/* <div className="row clearfix">
-                            <div className="col-lg-12 col-md-12 col-sm-12">
-                                <div className="card">
-                                    <div className="header">
-                                        <h2>Hospital Survey</h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);">Action</a></li>
-                                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="body">
-                                        <canvas id="line_chart" height={70} />
-                                    </div>
-                                </div>
-                            </div>
-                           </div>*/}
+                        
                         <div className="row clearfix">
                             <div className=" col-sm-12 col-md-4 col-lg-4">
                                 <div className="card">
                                     <div className="header">
                                         <h2>New Patient <small>18% High then last month</small></h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);">Action</a></li>
-                                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        
                                     </div>
                                     <div className="body">
                                         <div className="stats-report">
@@ -101,24 +73,16 @@ const Dashboard =()=>{
                                                 <h5>Day</h5>
                                                 <b className="col-green">5.10%</b></div>
                                         </div>
-                                       
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div className=" col-sm-12 col-md-4 col-lg-4">
                                 <div className="card">
                                     <div className="header">
                                         <h2>Heart Surgeries <small>18% High then last month</small></h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);">Action</a></li>
-                                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        
                                     </div>
                                     <div className="body">
                                         <div className="stats-report">
@@ -132,24 +96,16 @@ const Dashboard =()=>{
                                                 <h5>Day</h5>
                                                 <b className="col-blue-grey">9.50%</b></div>
                                         </div>
-                                       
+
                                     </div>
-                                   
+
                                 </div>
                             </div>
                             <div className=" col-sm-12 col-md-4 col-lg-4">
                                 <div className="card">
                                     <div className="header">
                                         <h2>Medical Treatment <small>18% High then last month</small></h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);">Action</a></li>
-                                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                       
                                     </div>
                                     <div className="body">
                                         <div className="stats-report">
@@ -163,7 +119,7 @@ const Dashboard =()=>{
                                                 <h5>Day</h5>
                                                 <b className="col-green">5.10%</b></div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -173,15 +129,7 @@ const Dashboard =()=>{
                                 <div className="card">
                                     <div className="header">
                                         <h2> New Patient List  </h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Action</a></li>
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Another action</a></li>
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                       
                                     </div>
                                     <div className="body">
                                         <div className="table-responsive">
@@ -231,7 +179,14 @@ const Dashboard =()=>{
                                                         <td>@Margaret </td>
                                                         <td><span className="label label-info">Cancer</span> </td>
                                                     </tr>
-                                                    
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>pawan </td>
+                                                        <td>panday</td>
+                                                        <td>@Margaret </td>
+                                                        <td><span className="label label-info">Cancer</span> </td>
+                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -244,15 +199,7 @@ const Dashboard =()=>{
                                 <div className="card">
                                     <div className="header">
                                         <h2>PATIENT prograss</h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Action</a></li>
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Another action</a></li>
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                       
                                     </div>
                                     <div className="body">
                                         <ul className="basic-list">
@@ -270,15 +217,7 @@ const Dashboard =()=>{
                                 <div className="card">
                                     <div className="header">
                                         <h2>PATIENT Reports</h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);">Action</a></li>
-                                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        
                                     </div>
                                     <div className="body">
                                         <div className="table-responsive">
@@ -314,7 +253,14 @@ const Dashboard =()=>{
                                                             <span className="sparkbar">1,8,2,3,9,8,5</span>
                                                         </td>
                                                     </tr>
-                                                   
+                                                    <tr>
+                                                        <td>Depanshu</td>
+                                                        <td>
+                                                            <span className="sparkbar">1,8,2,3,9,8,5</span>
+                                                        </td>
+                                                    </tr>
+
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -325,15 +271,7 @@ const Dashboard =()=>{
                                 <div className="card">
                                     <div className="header">
                                         <h2>Visits from countries</h2>
-                                        <ul className="header-dropdown">
-                                            <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="zmdi zmdi-more-vert" /></a>
-                                                <ul className="dropdown-menu float-right">
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Action</a></li>
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Another action</a></li>
-                                                    <li><a href="javascript:void(0);" className=" waves-effect waves-block">Something else here</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        
                                     </div>
                                     <div className="body">
                                         <ul className="country-state">
@@ -387,10 +325,13 @@ const Dashboard =()=>{
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                    
+                    
                 </section>
 
-        </div>
+            </div>
 
 
         </>

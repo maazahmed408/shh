@@ -1,12 +1,12 @@
 {
   "name": "kickrtechnology",
   "version": "14.16.1",
-  "homepage": "https://deepaksiwan.github.io/deepakdemo",
   "private": "true",
+  "main": "index.html",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "bower install && grunt build",
+    "build": "react-scripts build",
     "build:n17": "react-scripts --openssl-legacy-provider build",
     "changelog": "auto-changelog --starting-version 4.1.0 --commit-limit false --hide-credit",
     "eject": "react-scripts eject",
@@ -25,10 +25,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "engines": {
-    "node": "16.x",
-    "npm": "16.x"
   },
   "dependencies": {
     "@coreui/chartjs": "^3.0.0",
@@ -69,6 +65,7 @@
     "react-hook-form": "^7.27.1",
     "react-hook-form-input": "^1.1.10",
     "react-modal": "^3.14.4",
+    "react-phone-input-2": "^2.15.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.3.0",
     "react-select": "^5.2.2",

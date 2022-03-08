@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 //import Axios from 'axios';
 //import { object } from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -55,7 +57,8 @@ import { cilLockLocked, cilUser } from '@coreui/icons'*/}
 
 const Register = (props) => {
   const history = useHistory();
-  const initialValues = { username: " ", password: " ", Email: "", password: "", conformpassword: " " };
+  const initialValues = { username: " ", password: " ", Email: "", password: "", conformpassword: " ", phone: "" };
+  //const [phone, Setphone] =useState()
   const [formValues, setformValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
   const [IsSubmit, setIsSubmit] = useState(false);
@@ -90,7 +93,7 @@ const Register = (props) => {
   }
   useEffect(() => {
     console.log(IsSubmit);
-    if (Object.keys(formErrors).length === 0 && IsSubmit){
+    if (Object.keys(formErrors).length === 0 && IsSubmit) {
 
     }
   }, [formErrors])
@@ -104,25 +107,27 @@ const Register = (props) => {
     if (values.Email == 0) {
       errors.Email = "username is required";
     }
-   
+    if (values.phone == 0) {
+      errors.phone = "phone is required";
+    }
     if (values.password == 0) {
       errors.password = "password is required";
     }
     if (values.conformpassword == 0) {
       errors.conformpassword = "password is required"
     }
-     else if (values.password !== "undefined" &&  values.conformpassword !== "undefined") {
-        if (values.password != values.conformpassword) {
+    else if (values.password !== "undefined" && values.conformpassword !== "undefined") {
+      if (values.password != values.conformpassword) {
         errors.conformpassword = "conformpassword don't match.";
-       }
       }
-       return errors
+    }
+    return errors
 
   }
   const handleDirect = (event) => {
     history.push('/dashboard');
   };
-  
+
   return (
     <>
       <div style={{
@@ -136,7 +141,7 @@ const Register = (props) => {
           ) : (
             <Link to="/register"></Link>
           )}
-          
+
           <div className='container-fluid' >
             <div className='row d-flex justify-content-center align-items-center h-100'>
               <div className='col-md-9 col-lg-6 col-xl-5'>
@@ -151,19 +156,18 @@ const Register = (props) => {
                   <div className=''>
                     <h2 className='mb-0 me-3 text-center'>Admin register</h2>
                     <hr />
-                    <div className='form-outline mb-0'>
+                    <div className='form-outline mb-2'>
                       <label className='form-label' htmlFor='username'>
                         <h5>Username : </h5>
                       </label>
                       <input
                         type='text'
                         name='username'
-                       // required= 'required'
                         value={formValues.username}
                         onChange={handleChange}
                         className='form-control form-control-sm'
                         placeholder='Enter a username'
-                        
+
                       />
                     </div>
                     <p style={{ color: "red" }}> {formErrors.username}</p>
@@ -177,12 +181,28 @@ const Register = (props) => {
                         value={formValues.Email}
                         onChange={handleChange}
                         className='form-control form-control-sm'
-                        placeholder='Enter email'
                         
+                        placeholder='Enter email'
+
                       />
                     </div>
                     <p style={{ color: "red" }}>{formErrors.Email}</p>
                     <div className='form-outline mb-2'>
+                      <lable className='form-lable' htmlFor="phone">
+                        <h5>phone</h5>
+                    </lable>
+                      <PhoneInput
+                        name='phone'
+                        type= 'text'
+                        
+                        country={'in'}
+                        value={formValues.phone}                     
+                        onChange={handleChange}
+                        placeholder='Enter phone no'
+                      />
+                    </div>
+                    <p style={{ color: "red" }}>{formErrors.phone}</p>
+                    <div className='form-outline mb-3'>
                       <label className='form-label' htmlFor='password'>
                         <h5>password:</h5>
                       </label>
@@ -193,7 +213,7 @@ const Register = (props) => {
                         onChange={handleChange}
                         className='form-control form-control-sm'
                         placeholder='Enter password'
-                      
+
                       />
                     </div>
                     <p style={{ color: "red" }}>{formErrors.password}</p>
@@ -208,7 +228,7 @@ const Register = (props) => {
                         onChange={handleChange}
                         className='form-control form-control-sm'
                         placeholder='Enter conformpassword'
-                        
+
                       />
                     </div>
                     <p style={{ color: "red" }}>{formErrors.conformpassword}</p>

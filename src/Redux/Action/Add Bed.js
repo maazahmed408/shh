@@ -9,7 +9,7 @@ import {
     try {
       dispatch({ type: ADD_BED_GET_REQUEST });
       const { data } = await axios.get(
-         ''
+         `${process.env.REACT_APP_WEBSITE_URL_KICKR}`
       );
   
       dispatch({
