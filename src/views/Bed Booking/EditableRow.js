@@ -11,26 +11,6 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Enter doctor_name"
-          name="Room_No"
-          value={editFormData.Room_No}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <input
-          type="text"
-          required="required"
-          placeholder="Patient"
-          name="Patient"
-          value={editFormData.Patient}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <input
-          type="text"
-          required="required"
           placeholder="Allotment"
           name="Allotment"
           value={editFormData.Allotment}
@@ -47,23 +27,16 @@ const EditableRow = ({
           onChange={handleEditFormChange}
         ></input>
       </td>
-      <td>
-        <input
-          type="text"
-          required="required"
-          placeholder="Room_Type"
-          name="Room_Type"
-          value={editFormData.Room_Type}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      
       
       <td>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button  className="btn btn-danger"type="button" onClick={handleCancelClick}>
+        <div className="col-sm-12 d-flex text align-center">
+          <div className="col-sm-6">
+        <button type="submit" class="btn btn-sm">Save</button></div>
+        <div className="col-sm-6">
+        <button  className="btn btn-sm"type="button" onClick={handleCancelClick}>
           Cancel
-        </button>
+        </button></div>
+        </div>
       </td>
     </tr>
   );

@@ -1,9 +1,9 @@
-import React, {useState, Fragment} from "react";
+import React, { useState, Fragment } from "react";
 import "src/asset/plugins/bootstrap/css/bootstrap.min.css";
 import "src/asset/css/main.css";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit , faDeleteLeft} from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faEdit , faDeleteLeft} from '@fortawesome/free-solid-svg-icons'
 
 import data from "src/views/Bed Booking/mock-data.json";
 import ReadOnlyRow from "src/views/Bed Booking/ReadOnlyRow";
@@ -11,25 +11,21 @@ import EditableRow from "src/views/Bed Booking/EditableRow";
 import { nanoid } from "nanoid";
 
 
-const All_bed=()=>{
+const All_bed = () => {
     const [contacts, setContacts] = useState(data);
     const [addFormData, setAddFormData] = useState({
-        Room_No: "",
-        Patient: "",
+        
         Allotment: "",
         Discharge: "",
-        Room_Type: ""
-
+        
 
     });
-
     const [editFormData, setEditFormData] = useState({
-        Room_No: "",
-        Patient: "",
+       
         Allotment: "",
-        Discharge: "",
-        Room_Type: ""
+        Discharge: ""
         
+
     });
 
     const [editContactId, setEditContactId] = useState(null);
@@ -62,11 +58,10 @@ const All_bed=()=>{
         event.preventDefault()
         const newContact = {
             id: nanoid(),
-            Room_No: addFormData.Room_No,
-            Patient: addFormData.Patient,
+           
             Allotment: addFormData.Allotment,
             Discharge: addFormData.Discharge,
-            Room_Type: addFormData.Discharge,
+            
 
         };
         const newContacts = [...contacts, newContact];
@@ -78,12 +73,11 @@ const All_bed=()=>{
 
         const editedContact = {
             id: editContactId,
-            Room_No: editFormData.Room_No,
-            Patient: editFormData.Patient,
+           
             Allotment: editFormData.Allotment,
             Discharge: editFormData.Discharge,
-            Room_Type: editFormData.Discharge,
-            
+           
+
 
         };
 
@@ -100,11 +94,10 @@ const All_bed=()=>{
         event.preventDefault();
         setEditContactId(contact.id);
         const formValues = {
-            Room_No: contact.Room_No,
-            Patient: contact.patient,
+           
             Allotment: contact.Allotment,
             Discharge: contact.Discharge,
-            Room_Type: contact.Room_Type,
+           
 
         };
 
@@ -122,42 +115,43 @@ const All_bed=()=>{
         setContacts(newContacts);
     };
 
-    
-    return(
+
+    return (
         <>
-        <div>
-        <section class="content">
+            <div>
+                <section class="content">
                     <div class="container-fluid">
-                        <div class="block-header">
+                        {/*<div class="block-header">
                             <h2>All bed</h2>
                             <small class="text-muted">Welcome to bed booking</small>
-                        </div>
+                        </div>*/}
                         <div class="row clearfix">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="Alldoctor col-lg-12 col-md-12 col-sm-12">
                                 <div class="card">
                                     <div class="header">
-                                    <div class="col row-12 d-flex">
-                                <h2 class="col-10">Bed Booking</h2>
-                                <Link to="Add bed">
-                                <button class="col-2" type="button" class="btn btn-primary">Add Now</button>
-                                </Link>
-                                  </div>
-                                       
+                                        <div class=" Addnow1 col row-12 d-flex">
+                                            <h2 class="col-10" style={{paddingTop:'10px'}}>Bed Menu</h2>
+                                            <div className=" Addnow1">
+                                            <Link to="Bed Expense">
+                                                <button class=" col-2" type="button"  className="bedexpense btn btn-primary" style={{ borderRadius: '10px', background:'#056078',color: 'white', fontSize:'10px' }}>Add Now</button>
+                                            </Link>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="body table-responsive">
-                                    <form onSubmit={handleEditFormSubmit}>
-                                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>Room No</th>
-                                                    <th>Patient</th>
-                                                    <th>Allotment</th>
-                                                    <th>Discharge</th>
-                                                    <th>Room Type</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            {/*<tfoot>
+                                        <form onSubmit={handleEditFormSubmit}>
+                                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <th>Facility</th>
+                                                        <th>charges</th>
+                                                        
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                {/*<tfoot>
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>Position</th>
@@ -167,8 +161,8 @@ const All_bed=()=>{
                                                     <th>Salary</th>
                                                 </tr>
                                             </tfoot>*/}
-                                            <tbody>
-                                            {contacts.map((contact) => (
+                                                <tbody>
+                                                    {contacts.map((contact) => (
                                                         <Fragment>
                                                             {editContactId === contact.id ? (
                                                                 <EditableRow
@@ -185,13 +179,13 @@ const All_bed=()=>{
                                                             )}
                                                         </Fragment>
                                                     ))}
-                                               
-                                               
-                                               
-                                                
-        
-                                            </tbody>
-                                        </table>
+
+
+
+
+
+                                                </tbody>
+                                            </table>
                                         </form>
                                         {/*<form onSubmit={handleAddFormSubmit}>
                                             <input
@@ -238,7 +232,7 @@ const All_bed=()=>{
                         </div>
                     </div>
                 </section>
-        </div>
+            </div>
 
 
         </>

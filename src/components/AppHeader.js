@@ -50,6 +50,7 @@ const AppHeader = () => {
             </CNavLink>
             <CNavLink to="/Add payment" component={NavLink}>
             </CNavLink>
+            
           </CNavItem>
         </CHeaderNav>
         <CHeaderNav className="ms-3">

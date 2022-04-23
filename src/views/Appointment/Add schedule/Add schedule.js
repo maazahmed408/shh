@@ -97,16 +97,16 @@ const Add_schedule = () => {
                     <div className="container-fluid">
                    {/* <form onSubmit= {handleSubmit(onSubmit)}>*/}
                     <form onSubmit={handleSubmit}>
-                        <div className="block-header">
+                        {/*<div className="block-header">
                             <h2>Add scheduel</h2>
-                        </div>
+                        </div>*/}
                         <div className="row clearfix">
                             <div className="col-md-12">
                                 <div className="card">
                                     <div className="header">
                                         <div class="col row-12 d-flex">
-                                            <h2 class="col-10">Departments</h2>
-                                            <button class="col-2" type="button" class="btn btn-primary">Add schedule</button>
+                                            <h2 class="col-10">Docotr Schedule</h2>
+                                            <button class="col-2" type="button" className="btn btn-primary" style={{borderRadius: '10px'}}>Add schedule</button>
                                         </div>
                                     </div>
                                     <div className="body">
@@ -197,7 +197,7 @@ const Add_schedule = () => {
 
                                         </div>
                                         <div className="col-sm-12 text align-center">
-                                            <button style={{ border: "red" }} type="submit" className="btn btn-raised g-bg-cyan">Create schedule</button>
+                                            <button  type="submit" className="btn btn-raised g-bg-cyan" style={{borderRadius: '10px'}}>Create schedule</button>
                                         </div>
 
                                         {/*<div className="col-sm-12  d-flex">

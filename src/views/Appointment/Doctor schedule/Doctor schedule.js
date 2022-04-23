@@ -23,8 +23,6 @@ const Doctor_schedule = () => {
         Department: "",
         AvailableDys: "",
         AvailableTime: ""
-
-
     });
 
     const [editFormData, setEditFormData] = useState({
@@ -128,18 +126,18 @@ const Doctor_schedule = () => {
         <div>
         <section class="content">
                     <div class="container-fluid">
-                        <div class="block-header">
+                        {/*<div class="block-header">
                             <h2>Doctor_schedule</h2>
                             <small class="text-muted">Welcome to Doctor</small>
-                        </div>
+                        </div>*/}
                         <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="card">
                                     <div class="header">
-                                        <h2>Doctor Schedule</h2>
+                                        <h2>Doctor_Schedule</h2>
                                         <form class="form-inline d-flex my-2 my-lg-0">
                                         <Link to="Add schedule">
-                                       <button class="col-2" type="button" class="btn btn-primary">Add Schedule</button>
+                                       <button class="col-2" type="button" className="btn btn-primary" style={{borderRadius: '10px'}}>Add Schedule</button>
                                        </Link>
                                             {/*<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>*/}

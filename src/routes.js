@@ -18,13 +18,43 @@ const Add_schedule = React.lazy(() => import('./views/Appointment/Add schedule/A
 const Add_patient = React.lazy(() => import('./views/Patient/Add patient/Add patient'))
 const All_patient = React.lazy(() => import('./views/Patient/All patient/All patient'))
 
-//Bed booking
+//Bed Menu
 const Add_bed = React.lazy(() => import('./views/Bed Booking/Add bed/Add bed'))
+const Bed_expense = React.lazy(() => import('./views/Bed Booking/Bed Expense/Bed Expense'))
 const All_bed = React.lazy(() => import('./views/Bed Booking/All bed/All bed'))
+const Add_facility = React.lazy(() => import('./views/Bed Booking/Add Bed facility/Add faciility'))
+const Add_Amenities = React.lazy(() => import('./views/Bed Booking/Add Amenities/Add Amenities'))
+const Add_Services = React.lazy(() => import('./views/Bed Booking/Add Services/Add Services'))
+
+//Running Booking
+const Running_booking = React.lazy(() => import('./views/Bed Bookings/Running Booking/Running Booking'))
+const Bed_billing = React.lazy(() => import('./views/Bed Bookings/Bed Billing/Bed Billing'))
+const Closed_booking = React.lazy(() => import('./views/Bed Bookings/Closed Booking/Closed booking'))
+
 
 //Payment
 const Payment = React.lazy(() => import('./views/Payments/Payment/Payment'))
 const Add_payment = React.lazy(() => import('./views/Payments/Add payment/Add payment'))
+
+//Manage User
+const Add_user = React.lazy(() => import('./views/Manage User/Add User/Add User'))
+const SubAdmin_list = React.lazy(() => import('./views/Manage User/SubAdmin List/SubAdmin List'))
+
+//Hospital SubAdmin
+const HospitalSubAmin = React.lazy(() => import('./views/HospitalSubAdmin/AddHospital SubAdmin/AddHospital SubAdmin'))
+const HospitalSubAminList = React.lazy(() => import('./views/HospitalSubAdmin/HospitalSubAdmin List/HospitalSubAdmin List'))
+
+//Manage Hospital SubAdmin
+const ManageHospitalAdmin = React.lazy(() => import('./views/Manage HospitalSubAdmin/Manage HospitalAdmin/Manage HospitalAdmin'))
+const HospitalSubAmin_List = React.lazy(() => import('./views/Manage HospitalSubAdmin/Manage HospitalSubAdmin/HospitalSubAdmin List'))
+
+//User
+const User_list = React.lazy(() => import('./views/UserList/UserList/UserList'))
+const Bookings = React.lazy(() => import('./views/Bookings/Bookings/Bookings'))
+
+//Hospital
+const Hospital_add = React.lazy(() => import('./views/Hospital/HospitalAdd/HospitalAdd'))
+const Hospital_List = React.lazy(() => import('./views/Hospital/HospitalList/HospitalList'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -33,6 +63,18 @@ const routes = [
   { path: '/Doctor', name: 'Doctor', component: All_Doctor, exact: true },
   { path: '/Doctor/All Doctor', name: 'All Doctor', component: All_Doctor },
   { path: '/Doctor/Add Doctor', name: 'Add Doctor', component: Add_Doctor },
+
+  { path: '/Hospital', name: 'Hospital', component: Hospital_add, exact: true },
+  { path: '/Hospital/HospitalAdd', name: 'HospitalAdd', component: Hospital_add },
+  { path: '/Hospital/HospitalList', name: 'HospitalList', component: Hospital_List },
+  
+
+  { path: '/UserList', name: 'UserList', component: User_list, exact:true },
+  { path: '/UserList/UserList', name: 'UserList', component: User_list },
+
+
+  { path: '/Bookings', name: 'Bookings', component: Bookings, exact:true },
+  { path: '/Bookings/Bookings', name: 'Bookings', component: Bookings },
   
   { path: '/Department', name: 'Department', component: All_Department, exact: true },
   { path: '/Department/All Department', name: 'All Department', component: All_Department },
@@ -50,10 +92,35 @@ const routes = [
   { path: '/Bed Booking', name: 'Bed Booking', component: All_bed, exact: true },
   { path: '/Bed Booking/All bed', name: 'All bed', component: All_bed },
   { path: '/Bed Booking/Add bed', name: 'Add bed', component: Add_bed },
+  { path: '/Bed Booking/Bed Expense', name: 'Bed Expense', component: Bed_expense },
+  { path: '/Bed Booking/Add Bed facility', name: 'Add Bed facility', component: Add_facility },
+  { path: '/Bed Booking/Add Amenities', name: 'Add Amenities', component: Add_Amenities },
+  { path: '/Bed Booking/Add Services', name: 'Add Servies', component: Add_Services},
+
+  { path: '/Bed Bookings', name: 'Bed Bookings', component: Running_booking, exact: true },
+  { path: '/Bed Bookings/Running Booking', name: 'Running Booking', component: Running_booking },
+  { path: '/Bed Bookings/Bed Billing', name: 'Bed Blling', component: Bed_billing },
+  { path: '/Bed Bookings/Closed Booking', name: 'closed Booking', component: Closed_booking },
+ 
 
   { path: '/Payments', name: 'Payments', component: Add_payment, exact: true },
   { path: '/Payments/Payment', name: 'Payment', component: Payment },
   { path: '/Payments/Add payment', name: 'Add payment', component: Add_payment},
+
+  { path: '/Manage User', name: 'Manage User', component: Add_user, exact: true},
+  { path: '/Manage User/Add User', name: 'Add User', component: Add_user},
+  { path: '/Manage User/SubAdmin List', name: 'SubAdmin List', component: SubAdmin_list},
+
+  { path: '/HospitalSubAdmin', name: 'HospitalSubAdmin', component: Add_user, exact: true},
+  { path: '/HospitalSubAdmin/AddHospital SubAdmin', name: 'AddHospital SubAdmin', component: HospitalSubAmin},
+  { path: '/HospitalSubAdmin/HospitalSubAdmin List', name: 'HospitalSubAdmin List', component: HospitalSubAminList},
+
+
+  { path: '/Manage HospitalSubAdmin', name: 'Manage HospitalSubAdmin', component: ManageHospitalAdmin, exact: true},
+  { path: '/Manage HospitalSubAdmin/Manage HospitalAdmin', name: 'Manage HospitalAdmin', component: ManageHospitalAdmin},
+  { path: '/Manage HospitalSubAdmin/HospitalSubAdmin List', name: 'HospitalSubAdmin List', component: HospitalSubAmin_List},
+
+
 
 ]
 export default routes

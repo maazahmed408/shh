@@ -2,82 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-//import Axios from 'axios';
-//import { object } from 'prop-types';
 import { Link } from 'react-router-dom';
-import { dashboard } from 'src/views/dashboard/Dashboard'
-//import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-
-//import image from 'src/assets/images/avatars/1.jpg';
+import image from 'src/assets/images/avatars/Bg-Login.png';
 
 
-{/*import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardGroup,
-  CCol,
-  CContainer,
-  CForm,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
-  CRow,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'*/}
-/*const handleSubmit = (e) => {
-  
-  e.preventDefault();
-  Axios.post(
-    `${process.env.REACT_APP_ROOT_URL}/login`,{
-   username: username,
-   password:password,
-  }).then((res) => {
-    // console.log(res.data);
-    if (Object.keys(res.data).length === 1) {
-      alert(res.data.msg);
-    } else {
-      if (res.data.logIn === true) {
-        sessionStorage.setItem('loggedIn', true);
-        sessionStorage.setItem('token', res.data.token);
-        //history.push(`/`);
-      } else if (res.data.logIn === false) {
-        alert(res.data.msg);
-      }
-    }
-  });
-};*/
-{/*var sectionStyle = {
-  width: "100%",
-  height: "400px",
-  backgroundImage: "url("+{image}+")"
-};*/}
 
-const Register = (props) => {
+
+const Register = () => {
+  {/*const [passwordType1, SetPasswordType1] = useState('password');
+  const [passwordType2, SetPasswordType2] = useState('password');
+const [passwordType3, SetPasswordType3] = useState('password');*/}
+
+
   const history = useHistory();
-  const initialValues = { username: " ", password: " ", Email: "", password: "", conformpassword: " ", phone: "" };
-  //const [phone, Setphone] =useState()
+  const initialValues = { Username: " ", password: " ", Email: " ",  conformpassword: " "};
+  const [phone, setphone] =useState('')
   const [formValues, setformValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
   const [IsSubmit, setIsSubmit] = useState(false);
-  //const notify = () => toast("success login");
-  //const [showSignUp, setShowSignUp] = useState(true);
-  //const [showSignIn, setShowSignIn] = useState(true);
-
-  /*const ToggleSignIn = () => {
-    setShowSignIn(true);
-    setShowSignUp(false);
-  };
-
-  const ToggleSignUp = () => {
-    setShowSignIn(false);
-    setShowSignUp(true);
-  };*/
-
-  //console.log(IsSubmit)
-  //console.log(setShowSignIn)
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setformValues({ ...formValues, [name]: value });
@@ -86,7 +29,6 @@ const Register = (props) => {
     console.log(handleSubmit);
     console.log(setIsSubmit);
     e.preventDefault();
-    //setformErrors(validate(formValues));
     (setformErrors(validate(formValues)))
 
     setIsSubmit(true);
@@ -99,29 +41,29 @@ const Register = (props) => {
   }, [formErrors])
 
   const validate = (values) => {
-    const regexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{4,12}$/;
+    //const regexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{4,12}$/;
+    //const regex = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i;
     const errors = {}
-    if (values.username == 0) {
-      errors.username = "username is required";
+    if (values.Username == 0) {
+      errors.Username = "username is required";
     }
     if (values.Email == 0) {
-      errors.Email = "username is required";
+      errors.Email = "email is required";
     }
-    if (values.phone == 0) {
-      errors.phone = "phone is required";
-    }
+    
+   
     if (values.password == 0) {
       errors.password = "password is required";
     }
     if (values.conformpassword == 0) {
       errors.conformpassword = "password is required"
     }
-    else if (values.password !== "undefined" && values.conformpassword !== "undefined") {
-      if (values.password != values.conformpassword) {
-        errors.conformpassword = "conformpassword don't match.";
-      }
+    if(values.password !== values.conformpassword){
+      errors.conformpassword = "conform password don't match.";
+
     }
     return errors
+    
 
   }
   const handleDirect = (event) => {
@@ -131,7 +73,7 @@ const Register = (props) => {
   return (
     <>
       <div style={{
-        backgroundImage: `url("https://blog.hubspot.com/hubfs/become-medical-sales-rep.jpg")`,
+        backgroundImage: `url(${image})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -141,12 +83,13 @@ const Register = (props) => {
           ) : (
             <Link to="/register"></Link>
           )}
+          
 
           <div className='container-fluid' >
             <div className='row d-flex justify-content-center align-items-center h-100'>
               <div className='col-md-9 col-lg-6 col-xl-5'>
                 <img
-                  src='https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png'
+                  src=''
                   className='img-fluid'
                   alt=''
                 />
@@ -154,93 +97,76 @@ const Register = (props) => {
               <div className='col-md-8 col-lg-6 col-xl-4 offset-xl-1 py-5'>
                 <form onSubmit={handleSubmit}>
                   <div className=''>
-                    <h2 className='mb-0 me-3 text-center'>Admin register</h2>
+                    <h2 className='mb-0 me-3 text-center' style={{fontWeight:'bolder'}}>e-Hospi</h2>
+                    <div className='text align-center' style={{fontSize:'13px',color:'#cdc8c8'}}> Please fill this form to create your account</div>
                     <hr />
-                    <div className='form-outline mb-2'>
-                      <label className='form-label' htmlFor='username'>
-                        <h5>Username : </h5>
-                      </label>
+                    <div className='form-outline mb-0'>
+                      <lable>Username</lable>
                       <input
                         type='text'
-                        name='username'
-                        value={formValues.username}
+                        name='Username'
+                        id='Username'
+                        value={formValues.Username}
                         onChange={handleChange}
-                        className='form-control form-control-sm'
-                        placeholder='Enter a username'
-
+                        className='form-control '
+                        placeholder='Enter username'
                       />
                     </div>
-                    <p style={{ color: "red" }}> {formErrors.username}</p>
-                    <div className='form-outline mb-2'>
-                      <label className='form-label' htmlFor='Email'>
-                        <h5>Email:</h5>
-                      </label>
+                    <p style={{ color: "red" }}> {formErrors.Username}</p>
+                    <div className='form-outline mb-0'>
+                      <lable>Email</lable>
                       <input
                         type='text'
                         name='Email'
+                        required='required'
                         value={formValues.Email}
                         onChange={handleChange}
-                        className='form-control form-control-sm'
-                        
+                        className='form-control '
                         placeholder='Enter email'
-
                       />
                     </div>
                     <p style={{ color: "red" }}>{formErrors.Email}</p>
-                    <div className='form-outline mb-2'>
-                      <lable className='form-lable' htmlFor="phone">
-                        <h5>phone</h5>
-                    </lable>
-                      <PhoneInput
-                        name='phone'
-                        type= 'text'
-                        
-                        country={'in'}
-                        value={formValues.phone}                     
-                        onChange={handleChange}
-                        placeholder='Enter phone no'
-                      />
-                    </div>
-                    <p style={{ color: "red" }}>{formErrors.phone}</p>
-                    <div className='form-outline mb-3'>
-                      <label className='form-label' htmlFor='password'>
-                        <h5>password:</h5>
-                      </label>
+                    
+                    <div className='form-outline mb-0'>
+                     <lable>password</lable>
                       <input
                         type='text'
                         name='password'
                         value={formValues.password}
                         onChange={handleChange}
-                        className='form-control form-control-sm'
-                        placeholder='Enter password'
+                       className='form-control '
+                        
 
                       />
                     </div>
                     <p style={{ color: "red" }}>{formErrors.password}</p>
-                    <div className='form-outline mb-2'>
-                      <label className='form-label' htmlFor='conformpassword'>
-                        <h5>conform password:</h5>
-                      </label>
+                    <div className='form-outline mb-0'>
+                      <lable>conform password</lable>
                       <input
                         type='text'
                         name='conformpassword'
                         value={formValues.conformpassword}
                         onChange={handleChange}
-                        className='form-control form-control-sm'
-                        placeholder='Enter conformpassword'
-
-                      />
+                        className='form-control '
+                        
+                       />
+                      
                     </div>
                     <p style={{ color: "red" }}>{formErrors.conformpassword}</p>
-                    <div className='text-center text-lg-start mt-4 pt-2 text align-center'>
+                    <div className='text-center text-lg-start mt-4 pt-2 text align-center mb-0'>
                       <div className='row-12 text align-center form-outline mb-2'>
                         <button
+                      
                           type="submit"
                           className='col-12  btn btn-primary btn-bg '
                           style={{ paddingLeft: '4rem', paddingRight: '4rem' }}
                         >
-                          Register
+                          Sign up
                         </button>
+                      </div>
+                      <div className="row-col-sm-12 text-center d-flex text align-center">
+                      <div  className="d-flex col-sm-8 text align-left"style={{color:"black"}}>Already have an account?</div>
+                      <div className=' col-sm-4 d-flex text align right'><button style={{borderColor:'#056078'}}><Link to="/Login" style={{color: "black"}}>Login</Link></button></div>
                       </div>
                     </div>
                   </div>

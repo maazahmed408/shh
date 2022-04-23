@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "Facility_Name": "Telivision ",
+      "charges": "3000"
+     
+    },
+    {
+        "id": 2,
+        "Facility_Name": "Telivision ",
+        "charges": "4000"
+      }
+      
+   
+]

@@ -1,19 +1,35 @@
 [
     {
       "id": 1,
-      "department_name": "Pathology ",
+      "department_name": "Oncology ",
       "status": "Active"
     },
     {
       "id": 1,
-      "department_name": "Nursing",
+      "department_name": "Cardiology",
       "status": "InActive"
     },
     {
       "id": 1,
-      "department_name": "Paramedical ",
+      "department_name": "Neurology ",
+      "status": "InActive"
+    },
+    {
+      "id": 1,
+      "department_name": "Radiology ",
+      "status": "InActive"
+    },
+    {
+      "id": 1,
+      "department_name": "Dietary ",
+      "status": "InActive"
+    },
+    {
+      "id": 1,
+      "department_name": "Oncology ",
       "status": "InActive"
     }
+    
     
    
 ]

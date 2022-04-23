@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler,CCol , CContainer, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { AppSidebarNav } from './AppSidebarNav'
-import { logoNegative } from 'src/assets/brand/logo-negative'
-import { sygnet } from 'src/assets/brand/sygnet'
+//import { logoNegative } from 'src/assets/brand/logo-negative'
+//import { sygnet } from 'src/assets/brand/sygnet'
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 
 //sidebar nav config
 import navigation from '../_nav'
-import Typography from 'src/views/theme/typography/Typography'
+//import Typography from 'src/views/theme/typography/Typography'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
@@ -30,7 +30,7 @@ const AppSidebar = () => {
         <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />*/}
         <CContainer>
         <CRow>
-        <CCol sm="auto">eHospi Admin</CCol>
+        <CCol sm="auto">eHospi Admin Pannel</CCol>
        </CRow>
        </CContainer>
         <CIcon  className="sidebar-brand-full"  height={65} />

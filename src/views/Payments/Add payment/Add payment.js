@@ -92,14 +92,13 @@ const Add_payment = () => {
                     <div className="container-fluid">
                         <div className="block-header">
                             <h2>Add Payment</h2>
-                            <small className="text-muted">Welcome to Addpayment</small>
                         </div>
                         <div className="row clearfix">
                             <div className="col-lg-12 col-md-12 col-sm-12">
                                 <div className="card">
                                     <div className="header">
                                         <h2>Payment Information  </h2>
-                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        {/*<button type="button" class="btn btn-primary">Edit</button>*/}
 
                                     </div>
                                     <div className="body">
@@ -117,7 +116,7 @@ const Add_payment = () => {
                                                             value={formValues.paymentno}
                                                             onChange={handleChange}
                                                             className='form-control'
-                                                            placeholder='Enter a Envoice no'
+                                                            
                                                             autoComplete='paymentno'
                                                          />
                                                     </div>
@@ -134,7 +133,7 @@ const Add_payment = () => {
                                                            value={formValues.patientname}
                                                            onChange={handleChange}
                                                            className='form-control '
-                                                           placeholder='Enter a patient Name'
+                                                           
                                                            autoComplete='patientname'
                                                          />
                                                     </div>
@@ -162,7 +161,7 @@ const Add_payment = () => {
                                                            value={formValues.fullname}
                                                            onChange={handleChange}
                                                            className='form-control '
-                                                           placeholder='Enter a fullname'
+                                                           
                                                            autoComplete='fullname'
                                                          />
                                                     </div>
@@ -179,7 +178,7 @@ const Add_payment = () => {
                                                           value={formValues.cardno}
                                                           onChange={handleChange}
                                                           className='form-control '
-                                                          placeholder='Enter a 'cardno
+                                                          
                                                           autoComplete='cardno'
                                                         />
                                                     </div>
@@ -227,9 +226,11 @@ const Add_payment = () => {
                                                     <p style={{color: "red"}}> {formErrors.cvv }</p>
                                                 </div>
                                             </div>
-                                            <div className="col-sm-12 text align-center">
-                                                <button type="submit" className="btn btn-raised g-bg-cyan">Conform</button>
-                                                <button type="submit" className="btn btn-raised">Cancel</button>
+                                            <div className="col-sm-6 d-flex text align-center">
+                                                <div className="col-sm-3">
+                                                <button type="submit" className="btn btn-raised g-bg-cyan" style={{borderRadius: '10px'}}>Conform</button></div>
+                                                <div className="col-sm-2">
+                                                <button type="Reset" className="btn btn-raised g-bg-cyan" style={{borderRadius: '10px'}}>Cancel</button></div>
                                             </div>
 
 
@@ -255,13 +256,10 @@ const Add_payment = () => {
                             <label class="form-check-label" for="product_inactive">Inactive</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="product_inactive" value="option2" />
-                            <label class="form-check-label" for="product_inactive">Inactive</label>
+                            <input class="form-check-input" type="radio" name="status" id="product_inactive" value="option1" />
+                            <label class="form-check-label" for="product_active">Inactive</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="product_inactive" value="option2" />
-                            <label class="form-check-label" for="product_inactive">Inactive</label>
-                        </div>
+                        
                     </div>
 
 

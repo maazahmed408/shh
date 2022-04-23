@@ -132,18 +132,18 @@ const All_Department = () => {
             <div>
                 <section class="content">
                     <div class="container-fluid">
-                        <div class="block-header">
+                        {/*<div class="block-header">
                             <h2>All Department</h2>
-                            <small class="text-muted">Welcome to Department</small>
-                        </div>
+                            
+                        </div>*/}
                         <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="card">
-                                    <div class="header">
-                                        <h2>Department</h2>
+                                    <div className="header">
+                                        <h2> All Department</h2>
                                         <form class="form-inline d-flex my-2 my-lg-0">
                                             <Link to="Add Department">
-                                                <button class="col-2" type="button" class="btn btn-primary">Add Departments</button>
+                                                <button class ="col-2" type="button" className="Adddepartment btn btn-primary"style={{borderRadius: '10px'}} >Add Departments</button>
                                             </Link>
                                             {/*<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>*/}

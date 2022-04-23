@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import "src/asset/plugins/bootstrap/css/bootstrap.min.css";
 import "src/asset/css/main.css";
-import { Link } from 'react-router-dom';
+
+//import { Link } from 'react-router-dom';
 import data from "src/views/Department/mock-data.json";
 //import ReadOnlyRow from "src/views/Department/ReadOnlyRow";
 //import EditableRow from "src/views/Department/EditableRow";
@@ -10,43 +11,6 @@ import { useHistory } from 'react-router-dom';
 
 const Add_Department = () => {
     const history = useHistory();
-  {/*const initialValues = {departmentname: " ",  description: ""};
-  const [formValues, setformValues] = useState(initialValues);
-  const [formErrors, setformErrors] = useState({});
-  const [IsSubmit, setIsSubmit] = useState(false);
-  const handleChange = (e) =>{
-    const {name, value} = e.target;
-    setformValues({...formValues, [name]: value});
-  };
-  const handleSubmit = (e)=>{
-    console.log(handleSubmit);
-    console.log(setIsSubmit);
-    e.preventDefault();
-    (setformErrors(validate(formValues)))
-    
-    setIsSubmit(true);
-  }
-  useEffect(()=>{
-    console.log(IsSubmit);
-    if(Object.keys(formErrors).length === 0 && IsSubmit){
-      console.log(formErrors);
-    }   
-  }, [formErrors])
-
-  const validate=(values)=>{
-    const errors={}
-    if(values.departmentname ==0){
-      errors.departmentname = "Department name is required";
-    }
-    if(values.description == 0){
-      errors.description = "description is required";
-    }
-    
-    return errors;
-    
-  }*/}
-
-  //edit
   const [contacts, setContacts] = useState(data);
     const [addFormData, setAddFormData] = useState({
         department_name: "",
@@ -57,14 +21,11 @@ const Add_Department = () => {
         status: "",
 
     });
-
     const [editContactId, setEditContactId] = useState(null);
     const handleAddFormChange = (event) => {
         event.preventDefault();
-
         const fieldName = event.target.getAttribute("name");
         const fieldValue = event.target.value;
-
         const newFormData = { ...addFormData };
         newFormData[fieldName] = fieldValue;
         setAddFormData(newFormData);
@@ -145,6 +106,7 @@ const Add_Department = () => {
             return  (handleDirect());
         }  
     };*/}
+    
 
     return (
         <>
@@ -152,9 +114,9 @@ const Add_Department = () => {
             <form onSubmit={handleAddFormSubmit}>
                 <section className="content">
                     <div className="container-fluid">
-                        <div className="block-header">
+                        {/*<div className="block-header">
                             <h2>Add department</h2>
-                        </div>
+                        </div>*/}
                         
                           {/*{Object.keys(formErrors).length === 0 && IsSubmit ? (handleAddFormSubmit
                                     ):(
@@ -170,16 +132,14 @@ const Add_Department = () => {
                                         <div className="row clearfix">
                                             <div className="col-sm-6 ">
                                                 <div className="form-group1">
-                                                    <lable>Department name</lable>
+                                                    <lable>Department Name</lable>
                                                     <div className="form-line1">
                                                         <input
-                                                         type='text'
-                                                          name='department_name'
-                                                          required="required"
-                                                          onChange={handleAddFormChange}
-                                                          className='form-control '
-                                                          placeholder='Enter a department_name'
-                                                          autoComplete='department name'
+                                                         name="department_name" 
+                                                         required="required"
+                                                         onChange={handleAddFormChange}
+                                                         
+                                                         className="form-control no-resize"
                                                          />
                                                     </div>
                                                    {/* <p style={{color: "red"}}> {formErrors.departmentname}</p>*/}
@@ -189,13 +149,13 @@ const Add_Department = () => {
                                         <div className="row clearfix">
                                             <div className="col-sm-6">
                                                 <div className="form-group1">
-                                                    <lable>status</lable>   
+                                                    <lable>Status</lable>   
                                                     <div className="form-line1">
                                                         <input
                                                          name="status" 
                                                          required="required"
                                                          onChange={handleAddFormChange}
-                                                         placeholder= "Enter status"
+                                                         
                                                          className="form-control no-resize"
                                                          />
                                                     </div>
@@ -221,8 +181,8 @@ const Add_Department = () => {
 
                                                 
                                              </div>
-                                             <div className="col-sm-12  text align-center">
-                                                <button  type="submit" className="btn btn-raised g-bg-cyan">Create Department</button>
+                                             <div className="Department col-sm-12  text align-center">
+                                                <button  type="submit" className="button1 g-bg-cyan" style={{borderRadius: '10px'}}>Create Department</button>
                                                 </div>
                                             
                                         </div>

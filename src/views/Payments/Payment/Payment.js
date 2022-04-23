@@ -120,17 +120,16 @@ const Payment = () => {
                     <div class="container-fluid">
                         <div class="block-header">
                             <h2>Payments</h2>
-                            <small class="text-muted">Welcome to Payments</small>
                         </div>
                         <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="card">
                                     <div class="header">
                                         <h2>Hospital Payments</h2>
-                                        <form class="form-inline d-flex my-2 my-lg-0">
+                                        {/*<form class="form-inline d-flex my-2 my-lg-0">
                                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                         </form>
+                                         </form>*/}
                                     </div>
                                     <div class="body table-responsive">
                                     <form onSubmit={handleEditFormSubmit}>
@@ -143,7 +142,6 @@ const Payment = () => {
                                                     <th>Doctor</th>
                                                     <th>Amount</th>
                                                     <th>status</th>
-                                                    <th>change</th>
                                                 </tr>
                                             </thead>
                                                <tfoot> 
@@ -219,7 +217,7 @@ const Payment = () => {
                     <div className="row clearfix">
                         <div className="col-sm-12 text-center">
                             <Link to="Add payment">
-                            <a  className="btn btn-raised g-bg-cyan">Add payment</a>
+                            <a  className="btn btn-raised g-bg-cyan" style={{borderRadius: '10px'}}>Add payment</a>
                             </Link>
                                
                                
