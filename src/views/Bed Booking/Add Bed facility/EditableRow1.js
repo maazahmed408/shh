@@ -13,22 +13,21 @@ const EditableRow1 = ({
           required="required"
           placeholder="Enter Facility"
           name="Facility_Name"
-          value={editFormData.Facility_Name}
+          value={editFormData.facilitiesName}
           onChange={handleEditFormChange}
         ></input>
       </td>
-      <td>
+      {/* <td>
         <input
           type="text"
           required="required"
           placeholder="charges"
           name="charges"
-          value={editFormData.charges}
+          value={editFormData.facilitiesCharges}
           onChange={handleEditFormChange}
         ></input>
-      </td>
-      
-    
+      </td> */}
+
       <td>
         <div className="col-sm-12 d-flex text align-center">
           <div className="col-sm-6">

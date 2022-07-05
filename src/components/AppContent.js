@@ -1,10 +1,7 @@
-import React, { Suspense } from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
-import { CContainer, CSpinner } from '@coreui/react'
-
-// routes config
-import routes from '../routes'
-
+import React, { Suspense } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { CContainer, CSpinner } from '@coreui/react';
+import routes from '../routes';
 const AppContent = () => {
   return (
     <CContainer lg>
@@ -25,14 +22,13 @@ const AppContent = () => {
                   )}
                 />
               )
-            )
+            );
           })}
-          {/*<Redirect from="/" to="/dashboard" />*/}
           <Redirect from="/" to="/Login" />
         </Switch>
       </Suspense>
     </CContainer>
-  )
-}
+  );
+};
 
-export default React.memo(AppContent)
+export default React.memo(AppContent);

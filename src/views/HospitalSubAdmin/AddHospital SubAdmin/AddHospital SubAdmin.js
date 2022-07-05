@@ -3,11 +3,12 @@ import 'src/asset/plugins/bootstrap/css/bootstrap.min.css';
 import 'src/asset/css/main.css';
 import axios from 'axios';
 import { baseUrl } from 'src/views/config.js/baseUrl';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 const HospitalSubAdmin = () => {
-  const savenotification = () => toast('Successfully save');
+  //const savenotification = () => toast('Successfully save');
   const [uid, setuid] = useState('');
   const [password, setpassword] = useState('');
   const [hospitalCode, setHospitalCode] = useState('');
@@ -17,10 +18,15 @@ const HospitalSubAdmin = () => {
     let item = { uid, password, hospitalCode };
     let result = await axios.post(baseUrl + '/admin/addHospitalAdmin', item, {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJhZG1pbiIsImlhdCI6MTY1MDUyNDM1MiwiZXhwIjoxNjUwNjEwNzUyfQ.1yRZrFK_a8gliDWFEKKCZXlIBK2NfK7ncqaG6xgpnIg`,
+        Authorization: `Bearer ` + localStorage.getItem('token'),
       },
     });
-    console.log(result);
+    if (result) {
+      toast.success('Hospital admin added successfully', { autoClose: 600 });
+      setuid('');
+      setpassword('');
+      setHospitalCode('');
+    }
   }
 
   return (
@@ -32,7 +38,7 @@ const HospitalSubAdmin = () => {
               <div className="col-lg-12 col-md-12 col-sm-12 ">
                 <div className="card">
                   <div className="header">
-                    <h2>Add Hospital SubAdmin</h2>
+                    <h2>Add Hospital Admin </h2>
                   </div>
                   <form onSubmit={handleFormSubmit}>
                     <div className="body">
@@ -99,11 +105,9 @@ const HospitalSubAdmin = () => {
                             borderRadius: '5px',
                           }}
                           type="submit"
-                          onClick={savenotification}
                         >
                           Save
                         </button>
-                        <ToastContainer />
                       </div>
                     </div>
                   </form>

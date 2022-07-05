@@ -1,48 +1,24 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-//import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-//import { signIn } from 'src/Redux/Action/Login';
-//import { useDispatch } from 'react-redux';
 import image from 'src/assets/images/avatars/Bg-Login.png';
 import axios from 'axios';
 import { baseUrl } from 'src/views/config.js/baseUrl';
 
 const Login = () => {
-  //const dispatch = useDispatch();
   const history = useHistory();
-  //const router = useRouter();
   const [uid, setuid] = useState('');
   const [password, setpassword] = useState('');
-
-  /*const SignInSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('/adminLogin', { Signinusername, SigninPassword })
-    } catch (e) {
-      setSigninusername('')
-      setSigninusername('')
-      console.log(e)
-    }
-
-  }*/
-  
-
-  /*useEffect(() => {
-    if (localStorage.getItem('use info')) {
-      history.push("/dashboard")
-    }
-  }, [])*/
   async function login(e) {
     e.preventDefault();
     let item = { uid, password };
-    let result = await axios.post(baseUrl+'/adminLogin', item);
-      if (!result.data.token) {
-        alert('login failed');
-      } else {
-        console.log(result.data.token)
-        history.push("./dashboard");
-      } 
+    let result = await axios.post(baseUrl + '/admin/login', item);
+    if (!result.data.token) {
+      alert('login failed');
+    } else {
+      localStorage.setItem('token', result.data.token);
+      history.push('./dashboard');
+    }
   }
 
   return (

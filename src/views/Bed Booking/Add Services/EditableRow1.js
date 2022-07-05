@@ -11,12 +11,13 @@ const EditableRow1 = ({
         <input
           type="text"
           required="required"
-          placeholder="services"
-          name="services"
+          placeholder="servicesName"
+          name="servicesName"
           value={editFormData.services}
           onChange={handleEditFormChange}
         ></input>
       </td>
+     
       
       <td>
         <div className="col-sm-12 d-flex text align-center">

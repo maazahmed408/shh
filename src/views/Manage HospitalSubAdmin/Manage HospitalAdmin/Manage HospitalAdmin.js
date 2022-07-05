@@ -21,11 +21,18 @@ const ManageHospitalAdmin = () => {
       item,
       {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJhZG1pbiIsImlhdCI6MTY1MDUyNDM1MiwiZXhwIjoxNjUwNjEwNzUyfQ.1yRZrFK_a8gliDWFEKKCZXlIBK2NfK7ncqaG6xgpnIg`,
+          Authorization: `Bearer ` + localStorage.getItem('token'),
         },
       },
     );
-    console.log(result);
+    if (result) {
+      toast.success('Hospital sub admin added successfully', {
+        autoClose: 600,
+      });
+      setuid('');
+      setpassword('');
+      setHospitalcode('');
+    }
   }
 
   return (
@@ -37,7 +44,7 @@ const ManageHospitalAdmin = () => {
               <div className="col-lg-12 col-md-12 col-sm-12 ">
                 <div className="card">
                   <div className="header">
-                    <h2>Add Hospital Subadmin </h2>
+                    <h2>Manage Hospital SubAdmin </h2>
                   </div>
                   <form onSubmit={handleFormSubmit}>
                     <div className="body">

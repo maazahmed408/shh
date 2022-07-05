@@ -1,167 +1,90 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'src/asset/plugins/bootstrap/css/bootstrap.min.css';
 import 'src/asset/css/main.css';
-import data from 'src/views/Manage User/SubAdmin List/mock-data.json';
-import ReadOnlyRow from 'src/views/Manage User/SubAdmin List/ReadOnlyRow';
-import EditableRow from 'src/views/Manage User/SubAdmin List/EditableRow';
 import { baseUrl } from 'src/views/config.js/baseUrl';
-import { nanoid } from 'nanoid';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 const SubAdmin_list = () => {
-  const [valueData, setvalueData] = useState({});
+  const [r, setr] = useState(0);
+  const [valueData, setvalueData] = useState([]);
 
   const resultDAta = async () => {
-    const result = await axios.get(baseUrl + '/getAllSubAdmins', {
+    const result = await axios.get(baseUrl + '/admin/getAllSubAdmins', {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJhZG1pbiIsImlhdCI6MTY1MDUyNDM1MiwiZXhwIjoxNjUwNjEwNzUyfQ.1yRZrFK_a8gliDWFEKKCZXlIBK2NfK7ncqaG6xgpnIg`,
+        Authorization: `Bearer ` + localStorage.getItem('token'),
       },
     });
     setvalueData(result.data);
   };
-  resultDAta();
-  
+  useEffect(() => {
+    resultDAta();
+  }, [r]);
 
-  console.log('+++++++++++++++++++++++++++++++++++++++++');
-  console.log(valueData);
-  
+  const AdminAction = async (id) => {
+    const p = id.uid;
 
-  const [contacts, setContacts] = useState(valueData);
-  const [addFormData, setAddFormData] = useState({
-    uid: ' ',
-    duty: ' ',
-  });
-  const [editFormData, setEditFormData] = useState({
-    uid: ' ',
-    duty: ' ',
-  });
-  const [editContactId, setEditContactId] = useState(null);
-  const handleEditFormChange = (event) => {
-    event.preventDefault();
-    const fieldName = event.target.getAttribute('name');
-    const fieldValue = event.target.value;
-    const newFormData = { ...editFormData };
-    newFormData[fieldName] = fieldValue;
-    setEditFormData(newFormData);
-  };
-  const handleAddFormChange = (event) => {
-    event.preventDefault();
-    id: nanoid();
-    const fieldName = event.target.getAttribute('name');
-    const fieldValue = event.target.value;
-    const newFormData = { ...addFormData };
-    newFormData[fieldName] = fieldValue;
-    setAddFormData(newFormData);
-  };
-
-  const handleEditFormSubmit = (event) => {
-    event.preventDefault();
-    const editedContact = {
-      id: editContactId,
-      uid: editFormData.uid,
-      duty: editFormData.duty,
+    const AdminSub = async () => {
+      const result = await axios.delete(baseUrl + '/admin/deleteSubAdmin', {
+        data: { uid: p },
+        headers: {
+          Authorization: `Bearer ` + localStorage.getItem('token'),
+        },
+      });
+      if (result) {
+        setr(r + 1);
+        toast.error('Sub-Admin deleted successfully', {
+          autoClose: 600,
+        });
+      }
     };
-    const newContacts = [...contacts];
-    const index = contacts.findIndex((contact) => contact.id === editContactId);
-    newContacts[index] = editedContact;
-    setContacts(newContacts);
-    setEditContactId(null);
+    var answer = window.confirm('Are you sure? You want to delete: ' + p);
+    console.log(answer);
+    if (answer) {
+      AdminSub();
+    }
   };
-  const handleEditClick = (event, contact) => {
-    event.preventDefault();
-    setEditContactId(contact.id);
-    const formValues = {
-      uid: contact.uid,
-      duty: contact.duty,
-    };
-
-    setEditFormData(formValues);
-  };
-  const handleCancelClick = () => {
-    setEditContactId(null);
-  };
-  const handleDeleteClick = (contactId) => {
-    const newContacts = [...contacts];
-    const index = contacts.findIndex((contact) => contact.id === contactId);
-    newContacts.splice(index, 1);
-    setContacts(newContacts);
-  };
-  // const result = await axios.get(baseUrl + '/admin/getHospitalAdmin', {
-  //     headers: {
-  //       Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJhZG1pbiIsImlhdCI6MTY1MDM0NTcxOSwiZXhwIjoxNjUwNDMyMTE5fQ.giNmNEfQWTBoLv9mdJhUgbRvHkRsV3vlMeCakffmn8o`,
-  //     },
-  //   });
-  //   console.log('result data');
-  //   console.log(result);
-  //   const ghfjhhlk = result.data;
-  //   console.log('ghfjhhlk===========');
-  //   console.log(ghfjhhlk);
-  // async function handleFormSubmit(e) {
-
-  //     // let item = { uid, password, duty };
-  //     const result = await axios.get(baseUrl + '/getAllSubAdmins', { headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJhZG1pbiIsImlhdCI6MTY1MDI1ODU4NCwiZXhwIjoxNjUwMzQ0OTg0fQ.uhT6nSzqPWwNMCT_jsF2ThRSDmb-NVhkDOK5tZq5_w4` } });
-  //     return result
-
-  //}
 
   return (
-    <>
-      <div>
-        <section className="content">
-          <div className="container-fluid">
-            <div className="row clearfix">
-              <div className="col-lg-12 col-md-12 col-sm-12 ">
-                <div className="card">
-                  <div className="header">
-                    <h2>SubAdmin User List </h2>
-                  </div>
-                  <div class="body table-responsive">
-                    <form onSubmit={handleEditFormSubmit}>
-                      <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                        <thead>
-                          <tr
-                            className="tablepatient"
-                            style={{
-                              paddingTop: '30px',
-                              marginLeft: '30px',
-                              width: '5px',
-                            }}
-                          >
-                            <th>Userid</th>
-                            <th>Hospital Code</th>
-                          </tr>
-                        </thead>
-                        <tfoot></tfoot>
-                        <tbody style={{ width: '5px' }}>
-                        {valueData.length>1&&valueData.map((value) => (
-                            <Fragment>
-                              {editContactId === value.uid ? (
-                                <EditableRow
-                                  editFormData={editFormData}
-                                 
-                                />
-                              ) : (
-                                <ReadOnlyRow
-                                  contact={value}
-                                  
-                                />
-                              )}
-                            </Fragment>
-                          ))}
-
-                        </tbody>
-                       
-                       
-                      </table>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </>
+    <div>
+      <h2 style={{ marginLeft: '30%' }}>Sub-admin List</h2>
+      <table className="table table-bordered table-striped table-hover js-basic-example dataTable">
+        <thead>
+          <tr
+            className="tablepatient"
+            style={{
+              paddingTop: '30px',
+              marginLeft: '30px',
+              width: '5px',
+              backgroundColor: '#246073',
+            }}
+          >
+            <th style={{ color: 'white' }}>User-id</th>
+            <th style={{ color: 'white' }}>Privilege</th>
+            <th style={{ color: 'white' }}>Actions</th>
+          </tr>
+        </thead>
+        <tbody style={{ width: '5px' }}>
+          {valueData.length > 0 &&
+            valueData.map((value) => (
+              <tr>
+                <td>{value.uid}</td>
+                <td>{value.duty}</td>
+                <td style={{ textAlign: 'left' }}>
+                  <button className="btn btn-xm px-1 py-1 btn btn-xm">
+                    <i
+                      onClick={() => AdminAction(value)}
+                      class="fas fa-trash"
+                    ></i>
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 export default SubAdmin_list;
