@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'src/asset/plugins/bootstrap/css/bootstrap.min.css';
 import 'src/asset/css/main.css';
 import Modal from 'react-modal';
@@ -9,6 +9,12 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  getHospitalBedService,
+  getHospitalCountService,
+  getHospitalPatientService,
+  getHospitalEarningService,
+} from '../../Services/hospital';
+import {
   faBed,
   faUserDoctor,
   faHospitalUser,
@@ -16,6 +22,26 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
+  const [bedData, setBedData] = useState(0);
+  const [incomeData, setIncomeData] = useState(0);
+  const [patientData, setPatientData] = useState(0);
+  const [hospitalData, setHospitalData] = useState(0);
+
+  useEffect(() => {
+    getHospitalBedService().then((res) => {
+      setBedData(res.data.result);
+    });
+    getHospitalCountService().then((res) => {
+      setHospitalData(res.data.result);
+    });
+    getHospitalPatientService().then((res) => {
+      setPatientData(res.data.result);
+    });
+    getHospitalEarningService().then((res) => {
+      setIncomeData(res.data?.result[0]?.totalEarning);
+    });
+  }, []);
+
   const [Bedbooking, setBedbooking] = useState(false);
   const BedbookingBtn = (bool) => {
     setBedbooking(bool);
@@ -36,7 +62,7 @@ const Dashboard = () => {
             <div className="row clearfix">
               <div
                 className="col-lg-3 col-md-3 col-sm-6"
-                onClick={() => setPatient(true)}
+                // onClick={() => setPatient(true)}
               >
                 <div className="info-box-4 hover-zoom-effect">
                   <div
@@ -64,24 +90,7 @@ const Dashboard = () => {
                       <div
                         className="row d-flex text align-center"
                         style={{ color: 'white', fontSize: '10px' }}
-                      >
-                        <div className="d-flex" style={{ fontSize: '10px' }}>
-                          decrease by
-                        </div>
-                        <h1
-                          className="mb-2 d-flex"
-                          style={{ fontSize: '10px', color: 'white' }}
-                        >
-                          <CountUp start={10} end={100} duration={5}>
-                            {({ countUpRef, start }) => (
-                              <VisibilitySensor onChange={start} delayedCall>
-                                <span ref={countUpRef} />
-                              </VisibilitySensor>
-                            )}
-                          </CountUp>
-                          %
-                        </h1>
-                      </div>
+                      ></div>
                     </div>
                     <div className="col-lg-6" style={{ paddingTop: '5px' }}>
                       <div
@@ -102,7 +111,7 @@ const Dashboard = () => {
                             marginLeft: '25px',
                           }}
                         >
-                          <CountUp start={10} end={100} duration={5}>
+                          <CountUp start={0} end={patientData} duration={2}>
                             {({ countUpRef, start }) => (
                               <VisibilitySensor onChange={start} delayedCall>
                                 <span ref={countUpRef} />
@@ -117,7 +126,7 @@ const Dashboard = () => {
               </div>
               <div
                 className="col-lg-3 col-md-3 col-sm-6"
-                onClick={() => setDoctor(true)}
+                // onClick={() => setDoctor(true)}
               >
                 <div className="info-box-5 hover-zoom-effect">
                   <div
@@ -135,26 +144,7 @@ const Dashboard = () => {
                         Total{' '}
                       </div>
                       <div className="text" style={{ fontSize: '25px' }}>
-                        Doctors
-                      </div>
-                      <div
-                        className=" text d-flex text align-center"
-                        style={{ color: 'white', fontSize: '10px' }}
-                      >
-                        <div style={{ fontSize: '10px' }}>increase by</div>
-                        <h1
-                          className="mb-1"
-                          style={{ fontSize: '10px', color: 'white' }}
-                        >
-                          <CountUp start={0} end={50} duration={5}>
-                            {({ countUpRef, start }) => (
-                              <VisibilitySensor onChange={start} delayedCall>
-                                <span ref={countUpRef} />
-                              </VisibilitySensor>
-                            )}
-                          </CountUp>
-                          %
-                        </h1>
+                        Hospitals
                       </div>
                     </div>
                     <div
@@ -180,7 +170,7 @@ const Dashboard = () => {
                             marginRight: '10px',
                           }}
                         >
-                          <CountUp start={4} end={70} duration={3}>
+                          <CountUp start={0} end={hospitalData} duration={2}>
                             {({ countUpRef, start }) => (
                               <VisibilitySensor onChange={start} delayedCall>
                                 <span ref={countUpRef} />
@@ -196,7 +186,7 @@ const Dashboard = () => {
 
               <div
                 className="col-lg-3 col-md-3 col-sm-6"
-                onClick={() => setBedbooking(true)}
+                // onClick={() => setBedbooking(true)}
               >
                 <div className=" d-flex info-box-6 hover-zoom-effect">
                   <div className="col-lg-12 d-flex  text align-left content">
@@ -238,7 +228,7 @@ const Dashboard = () => {
                             marginRight: '15px',
                           }}
                         >
-                          <CountUp start={5} end={60} duration={3}>
+                          <CountUp start={0} end={bedData} duration={2}>
                             {({ countUpRef, start }) => (
                               <VisibilitySensor onChange={start} delayedCall>
                                 <span ref={countUpRef} />
@@ -294,7 +284,7 @@ const Dashboard = () => {
                         style={{ fontSize: '20px', marginLeft: '10px' }}
                       >
                         ₹
-                        <CountUp start={1000} end={10000} duration={3}>
+                        <CountUp start={0} end={incomeData} duration={2}>
                           {({ countUpRef, start }) => (
                             <VisibilitySensor onChange={start} delayedCall>
                               <span ref={countUpRef} />

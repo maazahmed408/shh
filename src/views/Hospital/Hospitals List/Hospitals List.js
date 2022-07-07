@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import 'src/asset/plugins/bootstrap/css/bootstrap.min.css';
 import 'src/asset/css/main.css';
 import { baseUrl } from 'src/views/config.js/baseUrl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { getHospitalDetailService } from '../../../Services/hospital';
+import HospitalDetail from './HospitalDetail';
 
 import axios from 'axios';
 
 const Hospital_List = () => {
   const [valueData, setvalueData] = useState([]);
+  const [hospitalDetails, setHospitalDetails] = useState({});
 
   const resultDAta = async () => {
     const result = await axios.get(baseUrl + '/getHospital', {
@@ -31,6 +36,7 @@ const Hospital_List = () => {
     ambulances: ' ',
   });
   const [editContactId, setEditContactId] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleEditFormSubmit = (event) => {
     event.preventDefault();
@@ -46,6 +52,13 @@ const Hospital_List = () => {
     setEditContactId(null);
   };
 
+  const handleHospitalVew = (hCode) => {
+    setIsVisible(true);
+    getHospitalDetailService(hCode).then((response) => {
+      if (response.success === true) setHospitalDetails(response.data);
+    });
+  };
+
   return (
     <>
       <div>
@@ -57,9 +70,9 @@ const Hospital_List = () => {
                   <div className="header">
                     <h2>Hospitals List</h2>
                   </div>
-                  <div class="body table-responsive">
+                  <div className="body table-responsive">
                     <form onSubmit={handleEditFormSubmit}>
-                      <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                      <table className="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
                           <tr
                             className="tablepatient"
@@ -77,13 +90,14 @@ const Hospital_List = () => {
                             <th>State</th>
                             <th>Phone</th>
                             <th>Number of beds</th>
+                            <th>View Detail</th>
                           </tr>
                         </thead>
                         <tfoot></tfoot>
                         <tbody style={{ width: '5px' }}>
                           {valueData.length !== 0 &&
                             valueData.map((value) => (
-                              <tr>
+                              <tr key={value._id}>
                                 <td>{value.hospitalName}</td>
                                 <td>{value.hospitalCode}</td>
                                 <td>{value.hospitalType}</td>
@@ -92,6 +106,24 @@ const Hospital_List = () => {
                                 <td>{value.state}</td>
                                 <td>{value.phone}</td>
                                 <td>{value.numberOfBeds}</td>
+                                <td
+                                  style={{
+                                    textAlign: 'center',
+                                  }}
+                                >
+                                  <button
+                                    onClick={() =>
+                                      handleHospitalVew(value.hospitalCode)
+                                    }
+                                    className="btn btn-xm px-1 py-1 btn btn-xm"
+                                    style={{ marginRight: '1.5rem' }}
+                                  >
+                                    <FontAwesomeIcon
+                                      style={{ color: 'green' }}
+                                      icon={faEye}
+                                    />
+                                  </button>
+                                </td>
                               </tr>
                             ))}
                         </tbody>
@@ -102,6 +134,12 @@ const Hospital_List = () => {
               </div>
             </div>
           </div>
+          {isVisible && (
+            <HospitalDetail
+              setIsVisible={setIsVisible}
+              hospitalDetailsData={hospitalDetails}
+            />
+          )}
         </section>
       </div>
     </>
