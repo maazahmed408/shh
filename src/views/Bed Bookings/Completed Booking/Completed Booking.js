@@ -9,7 +9,7 @@ const Bed_billing = () => {
 
   const completedBookingService = async () => {
     const result = await axios.get(
-      'http://localhost:8000' + '/admin/getCompletedBooking',
+      'https://ehospi-app.herokuapp.com' + '/admin/getCompletedBooking',
       {
         headers: {
           Authorization: `Bearer ` + localStorage.getItem('token'),
