@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
-import { baseUrl } from 'src/views/config.js/baseUrl';
+import baseUrl from 'src/views/config.js/baseUrl';
 import ReadOnlyRow1 from 'src/views/Bed Bookings/Pending Booking/ReadOnlyRow1';
 import EditableRow1 from 'src/views/Bed Bookings/Pending Booking/EditableRow1';
 import axios from 'axios';

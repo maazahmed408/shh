@@ -65,7 +65,6 @@ export const getHospitalPatientService = async (data) => {
     };
   }
 };
-
 export const getHospitalEarningService = async (data) => {
   try {
     console.log('Inside login service data = ', data);
@@ -87,7 +86,6 @@ export const getHospitalEarningService = async (data) => {
     };
   }
 };
-
 export const getHospitalDetailService = async (data) => {
   try {
     console.log('Inside login service data = ', data);

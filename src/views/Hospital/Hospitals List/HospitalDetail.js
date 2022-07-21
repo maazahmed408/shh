@@ -23,7 +23,6 @@ const HospitalDetail = ({ setIsVisible, hospitalDetailsData }) => {
   );
   let beds = get(hospitalDetailsData, 'bedDetails.beds', []);
   let imageUrl = get(hospitalDetailsData, 'hospitalImages.imageUrl', []);
-  console.log(imageUrl);
 
   useEffect(() => {
     setImageList([]);

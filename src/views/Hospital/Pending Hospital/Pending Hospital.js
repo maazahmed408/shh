@@ -36,7 +36,6 @@ const Pending_List = () => {
         city: id.city,
         state: id.state,
         phone: id.phone,
-        numberOfBeds: id.numberOfBeds,
       },
       {
         headers: {

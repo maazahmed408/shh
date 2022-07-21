@@ -214,7 +214,6 @@ const Dashboard = () => {
                       >
                         <FontAwesomeIcon
                           color="bluelight"
-                          size="40"
                           icon={faBed}
                           style={{ margin: '10px' }}
                         />
@@ -274,7 +273,6 @@ const Dashboard = () => {
                       >
                         <FontAwesomeIcon
                           color="bluelight"
-                          size="40"
                           icon={faMoneyCheck}
                           style={{ margin: '10px' }}
                         />
