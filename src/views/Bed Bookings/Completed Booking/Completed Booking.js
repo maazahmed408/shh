@@ -1,12 +1,19 @@
 import baseUrl from 'src/views/config.js/baseUrl';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import 'src/asset/plugins/bootstrap/css/bootstrap.min.css';
 import 'src/asset/css/main.css';
 import axios from 'axios';
+import EditableRow1 from "./EditableRow1";
+import ReadOnlyRow1 from './ReadOnlyRow1';
 
 const Bed_billing = () => {
   const [resData, setResData] = useState([]);
 
+  const [editContactId, setEditContactId] = useState(null);
+  const [editFormData, setEditFormData] = useState({
+    patientName: ' ',
+    phone: ' ',
+  });
   const completedBookingService = async () => {
     const result = await axios.get(
       'https://ehospi-app.herokuapp.com' + '/admin/getCompletedBooking',
